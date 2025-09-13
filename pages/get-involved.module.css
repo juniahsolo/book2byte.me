@@ -1,0 +1,94 @@
+.pageContainer {
+  padding: var(--spacing-12) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--foreground);
+  margin-bottom: var(--spacing-4);
+}
+
+.subtitle {
+  font-family: var(--font-family-base);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+.tabsContainer {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tabsList {
+  justify-content: center;
+  margin-bottom: var(--spacing-8);
+}
+
+.tabTrigger {
+  display: flex;
+  gap: var(--spacing-2);
+  align-items: center;
+}
+
+.tabContent {
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-8);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.contentHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-8);
+}
+
+.contentTitle {
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-3);
+}
+
+.contentDescription {
+  font-family: var(--font-family-base);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.actionArea {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-6);
+}
+
+.donationInfo {
+  font-family: var(--font-family-base);
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  max-width: 500px;
+}
+
+.formContainer {
+  max-width: 600px;
+  margin: 0 auto;
+}

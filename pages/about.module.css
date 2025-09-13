@@ -1,0 +1,150 @@
+.pageContainer {
+  padding: var(--spacing-12) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--foreground);
+  margin-bottom: var(--spacing-4);
+}
+
+.subtitle {
+  font-family: var(--font-family-base);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+.contentSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-8);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .contentSection {
+    grid-template-columns: 2fr 3fr;
+    gap: var(--spacing-12);
+  }
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  filter: grayscale(100%);
+  box-shadow: var(--shadow-lg);
+}
+
+.textContainer {
+  font-family: var(--font-family-base);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--foreground);
+}
+
+.textContainer p {
+  margin-bottom: var(--spacing-4);
+}
+
+.textContainer p:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-4);
+  color: var(--foreground);
+}
+
+.visionSection {
+  background-color: var(--surface);
+  padding: var(--spacing-12) var(--spacing-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.visionContent {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.visionGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-8);
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .visionGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.visionCard {
+  padding: var(--spacing-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.visionCard h3 {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-3);
+  color: var(--primary);
+}
+
+.visionCard p {
+  font-family: var(--font-family-base);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.ctaSection {
+  text-align: center;
+  padding: var(--spacing-12) 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family: var(--font-family-heading);
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-4);
+}
+
+.ctaText {
+  font-family: var(--font-family-base);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  margin-bottom: var(--spacing-6);
+}
