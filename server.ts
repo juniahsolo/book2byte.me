@@ -5,7 +5,15 @@ import { serve } from '@hono/node-server';
 
 const app = new Hono();
 
-app.use('/*', serveStatic({ root: './dist' }))
+// API routes
+app.get('/_api/health', (c) => {
+  return c.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+// Serve static files
+app.use('/*', serveStatic({ root: './dist' }));
+
+// Catch-all route for SPA
 app.get("*", async (c, next) => {
   const p = c.req.path;
   if (p.startsWith("/_api")) {
@@ -13,6 +21,14 @@ app.get("*", async (c, next) => {
   }
   return serveStatic({ path: "./dist/index.html" })(c, next);
 });
-serve({ fetch: app.fetch, port: 3344 });
-console.log("Running at http://localhost:3344")
+
+// Export for Vercel
+export default app;
+
+// Local development server
+if (process.env.NODE_ENV !== 'production') {
+  const port = process.env.PORT ? parseInt(process.env.PORT) : 3344;
+  serve({ fetch: app.fetch, port });
+  console.log(`Running at http://localhost:${port}`);
+}
       
