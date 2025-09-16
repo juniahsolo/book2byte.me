@@ -1,21 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./SharedLayout.module.css";
-import { BookHeart, Twitter, Linkedin, Facebook } from "lucide-react";
+import { BookHeart, Twitter, Linkedin, Facebook, Menu, X } from "lucide-react";
 
 interface SharedLayoutProps {
   children: React.ReactNode;
 }
 
 export const SharedLayout = ({ children }: SharedLayoutProps) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <div className={styles.layout}>
       <header className={styles.header}>
         <div className={styles.container}>
-          <Link to="/" className={styles.logo}>
+          <Link to="/" className={styles.logo} onClick={closeMobileMenu}>
             <BookHeart size={28} />
             <span>Book2Byte</span>
           </Link>
+          
+          {/* Desktop Navigation */}
           <nav className={styles.nav}>
             <NavLink
               to="/"
@@ -38,6 +50,49 @@ export const SharedLayout = ({ children }: SharedLayoutProps) => {
               className={({ isActive }) =>
                 isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
               }
+            >
+              Get Involved
+            </NavLink>
+          </nav>
+          
+          {/* Mobile Menu Button */}
+          <button
+            className={styles.mobileMenuButton}
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+        
+        {/* Mobile Navigation */}
+        <div className={`${styles.mobileNav} ${isMobileMenuOpen ? styles.mobileNavOpen : ''}`}>
+          <nav className={styles.mobileNavContent}>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? `${styles.mobileNavLink} ${styles.active}` : styles.mobileNavLink
+              }
+              onClick={closeMobileMenu}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? `${styles.mobileNavLink} ${styles.active}` : styles.mobileNavLink
+              }
+              onClick={closeMobileMenu}
+            >
+              About
+            </NavLink>
+            <NavLink
+              to="/get-involved"
+              className={({ isActive }) =>
+                isActive ? `${styles.mobileNavLink} ${styles.active}` : styles.mobileNavLink
+              }
+              onClick={closeMobileMenu}
             >
               Get Involved
             </NavLink>

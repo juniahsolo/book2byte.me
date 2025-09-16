@@ -10,7 +10,13 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--spacing-6);
+  padding: 0 var(--spacing-4);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--spacing-6);
+  }
 }
 
 .header {
@@ -45,8 +51,95 @@
 }
 
 .nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+    gap: var(--spacing-6);
+  }
+}
+
+/* Mobile Menu Button */
+.mobileMenuButton {
   display: flex;
-  gap: var(--spacing-6);
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2);
+  background: none;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: background-color var(--animation-duration-fast) ease;
+}
+
+.mobileMenuButton:hover {
+  background-color: var(--muted);
+}
+
+@media (min-width: 768px) {
+  .mobileMenuButton {
+    display: none;
+  }
+}
+
+/* Mobile Navigation */
+.mobileNav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--animation-duration-normal) ease;
+  z-index: var(--z-nav);
+}
+
+.mobileNavOpen {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 768px) {
+  .mobileNav {
+    display: none;
+  }
+}
+
+.mobileNavContent {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-4);
+  gap: var(--spacing-2);
+}
+
+.mobileNavLink {
+  font-family: var(--font-family-base);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--radius);
+  transition: all var(--animation-duration-fast) ease;
+  display: block;
+}
+
+.mobileNavLink:hover {
+  color: var(--foreground);
+  background-color: var(--muted);
+}
+
+.mobileNavLink.active {
+  color: var(--primary);
+  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+  font-weight: 600;
 }
 
 .navLink {

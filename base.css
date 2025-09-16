@@ -161,6 +161,10 @@
     background: var(--background);
     color: var(--foreground);
     font-family: var(--font-family-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
 
   * {
@@ -169,6 +173,13 @@
     margin: 0;
   }
 
+  /* Improve tap targets for touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    button, a, input, select, textarea {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
 
   button {
     border: none;
@@ -177,11 +188,28 @@
     font-family: inherit;
     font-size: inherit;
     color: inherit;
+    -webkit-tap-highlight-color: transparent;
   }
 
   a {
     color: inherit;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Ensure images are responsive by default */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Better focus visibility on mobile */
+  @media (hover: none) and (pointer: coarse) {
+    *:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
   }
 
   th, td {
